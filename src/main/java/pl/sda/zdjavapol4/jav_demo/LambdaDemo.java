@@ -1,6 +1,9 @@
 package pl.sda.zdjavapol4.jav_demo;
 
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 class MyRunnable implements Runnable{
 
     @Override
@@ -44,5 +47,17 @@ public class LambdaDemo {
         StringToInt myName = (name) -> name.length();
         System.out.println(myName.nameAndSurnameLenght("Blazej", "Karnecki"));
         System.out.println(myName.nameLenght("Blazej"));
+
+
+        Stream<Object> objects = Stream.of("mariusz", "marek", "adrianna", "zenon", "rysiek", "halina");
+        Stream<String> names = Stream.of("mariusz", "marek", "adrianna", "zenon", "rysiek", "halina");
+
+
+        names.filter(name -> name.length() >= 6)
+                .map(s -> s.length())
+                .forEach(integer -> System.out.println("name lenght: " + integer));
+
+        objects.filter(o -> o instanceof String)
+                .
     }
 }
