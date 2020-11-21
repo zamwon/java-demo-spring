@@ -58,6 +58,8 @@ public class LambdaDemo {
                 .forEach(integer -> System.out.println("name lenght: " + integer));
 
         objects.filter(o -> o instanceof String)
-                .
+                .map(o -> (String)o)
+                .map(s -> s.length())
+                .forEach(integer -> System.out.println("name lenght: " + integer));
     }
 }
