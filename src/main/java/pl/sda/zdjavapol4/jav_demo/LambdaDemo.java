@@ -53,11 +53,13 @@ public class LambdaDemo {
         Stream<String> names = Stream.of("mariusz", "marek", "adrianna", "zenon", "rysiek", "halina");
 
 
-        names.filter(name -> name.length() >= 6)
+        names.filter(name -> name.length() > 6)
                 .map(s -> s.length())
-                .forEach(integer -> System.out.println("name lenght: " + integer));
+                .forEach(integer -> System.out.println("from Stream<String> name lenght: " + integer));
 
         objects.filter(o -> o instanceof String)
-                .
+                .map(o -> (String)o)
+                .map(s -> s.length())
+                .forEach(integer -> System.out.println("name lenght: " + integer));
     }
 }
